@@ -29,6 +29,8 @@ function chooseMood(selected) {
 function startTyping() {
   const textBox = document.getElementById('typedText');
   const finishBtn = document.getElementById('finishBtn');
+  const hurtextras = document.getElementById('hurtExtras');
+  const songLink = document.getElementById('songLink');
 
   const messages = {
     hurt: `I know I hurt you.
@@ -65,6 +67,10 @@ very unlikely tu isko select karega par the real message is in hurt box`
   };
 
   typeText(messages[mood], textBox, () => {
+    if(mood === 'hurt') {
+      hurtExtras.classList.remove('hidden');
+      songLink.href = "https://youtu.be/kuniEyt3Qks?si=6g74qBh2pQq1MORg"
+    }
     finishBtn.classList.remove('hidden');
   });
 }
