@@ -1,3 +1,4 @@
+/* BASE */
 body {
   margin: 0;
   background: #0f0f14;
@@ -5,7 +6,7 @@ body {
   font-family: Georgia, serif;
 }
 
-/* Small screens container */
+/* INTRO CONTAINER */
 #container {
   max-width: 650px;
   padding: 20px;
@@ -13,7 +14,7 @@ body {
   text-align: center;
 }
 
-/* Screen handling */
+/* SCREENS */
 .screen {
   display: none;
 }
@@ -22,15 +23,14 @@ body {
   display: block;
 }
 
-/* Full screen letter */
+/* FULL LETTER SCREEN */
 .screen.full {
-  display: none;
   width: 100%;
   min-height: 100vh;
   padding: 60px 0;
 }
 
-/* Letter wrapper */
+/* LETTER WRAPPER */
 .message-wrapper {
   max-width: 1400px;
   width: 95%;
@@ -38,7 +38,17 @@ body {
   text-align: left;
 }
 
-/* Main text */
+/* TEXT */
+.soft {
+  font-size: 1.2rem;
+  opacity: 0.85;
+}
+
+.line {
+  font-size: 1.4rem;
+  margin: 15px 0;
+}
+
 #typedText {
   white-space: pre-line;
   font-size: 1.35rem;
@@ -46,7 +56,7 @@ body {
   margin-bottom: 30px;
 }
 
-/* Buttons */
+/* BUTTONS */
 button {
   margin-top: 25px;
   padding: 10px 22px;
@@ -61,7 +71,11 @@ button:hover {
   background: rgba(255,255,255,0.1);
 }
 
-/* Gallery */
+.choices button {
+  margin: 10px;
+}
+
+/* GALLERY */
 .gallery {
   display: flex;
   gap: 14px;
@@ -76,15 +90,29 @@ button:hover {
   border-radius: 14px;
 }
 
-/* Song */
+/* SONG */
 .song {
   display: inline-block;
   margin-top: 25px;
   color: #f2c6d0;
   text-decoration: none;
+  font-size: 1.1rem;
 }
 
-/* Utility */
+/* UTILITY */
 .hidden {
   display: none;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  #typedText {
+    font-size: 1.15rem;
+    line-height: 1.7;
+  }
+
+  .gallery img {
+    width: 140px;
+    height: 140px;
+  }
 }
