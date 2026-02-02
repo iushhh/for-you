@@ -23,17 +23,18 @@ function revealLine() {
 function chooseMood(selected) {
   mood = selected;
   nextScreen();
-  startTyping();
+  showMessage();
 }
 
-function startTyping() {
+function showMessage() {
   const textBox = document.getElementById('typedText');
   const finishBtn = document.getElementById('finishBtn');
-  const hurtextras = document.getElementById('hurtExtras');
+  const hurtExtras = document.getElementById('hurtExtras');
   const songLink = document.getElementById('songLink');
 
   const messages = {
-    hurt: `I know I hurt you.
+    hurt: `
+  I know I hurt you.
 And I won’t try to justify it.
 I just want you to know I see it now.
 And I’m truly sorry.
@@ -57,34 +58,38 @@ I am always your one call away till death bed and i promise that. I will watch f
 
 Mera ghopluuuuu....... 
 
-`,
+    `,
 
-    here: `Thank you for still being here.
+    confused: `
+I know things feel unclear right now.
+And that confusion didn’t come from nowhere.
+
+You deserved clarity.
+You deserved steadiness.
+And I’m sorry I didn’t give you that.
+
+[WRITE YOUR FULL MESSAGE HERE]
+    `,
+
+    here: `
+Thank you for still being here.
 I don’t take that lightly.
-I want to do better, not just say it.
 
-very unlikely tu isko select karega par the real message is in hurt box`
+I know trust isn’t kept by words alone,
+and I want to show you, patiently, that I can do better.
+
+[WRITE YOUR FULL MESSAGE HERE]
+    `
   };
 
-  typeText(messages[mood], textBox, () => {
-    if(mood === 'hurt') {
-      hurtExtras.classList.remove('hidden');
-      songLink.href = "https://youtu.be/kuniEyt3Qks?si=6g74qBh2pQq1MORg"
-    }
-    finishBtn.classList.remove('hidden');
-  });
-}
+  // Show full message instantly
+  textBox.innerText = messages[mood];
 
-function typeText(text, element, callback) {
-  let i = 0;
-  element.innerHTML = '';
+  // Show extras only for "hurt"
+  if (mood === 'hurt') {
+    hurtExtras.classList.remove('hidden');
+    songLink.href = "https://open.spotify.com/track/YOUR_SONG_ID";
+  }
 
-  const interval = setInterval(() => {
-    element.innerHTML += text.charAt(i);
-    i++;
-    if (i >= text.length) {
-      clearInterval(interval);
-      callback();
-    }
-  }, 35);
+  finishBtn.classList.remove('hidden');
 }
