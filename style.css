@@ -1,30 +1,36 @@
+/* Base */
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
   margin: 0;
   background: #0f0f14;
   color: #f2f2f2;
   font-family: Georgia, serif;
 }
 
-
+/* Container for early screens */
 #container {
   max-width: 650px;
   padding: 20px;
+  margin: 0 auto;
   text-align: center;
 }
 
+/* Screen handling */
 .screen {
   display: none;
 }
+
+.screen.active {
+  display: block;
+}
+
+/* Full-width screen for the letter */
 .screen.full {
   width: 100%;
   min-height: 100vh;
   padding: 60px 0;
 }
 
+/* Wrapper for long message */
 .message-wrapper {
   max-width: 1400px;
   width: 95%;
@@ -32,11 +38,7 @@ body {
   text-align: left;
 }
 
-
-.screen.active {
-  display: block;
-}
-
+/* Text styles */
 .soft {
   font-size: 1.2rem;
   opacity: 0.85;
@@ -47,10 +49,20 @@ body {
   margin: 15px 0;
 }
 
+/* Main message text */
+#typedText {
+  white-space: pre-line;
+  font-size: 1.35rem;
+  line-height: 1.85;
+  margin-bottom: 30px;
+}
+
+/* Hidden utility */
 .hidden {
   display: none;
 }
 
+/* Buttons */
 button {
   margin-top: 25px;
   padding: 10px 22px;
@@ -62,18 +74,48 @@ button {
 }
 
 button:hover {
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .choices button {
   margin: 10px;
 }
 
-#typedText {
-  white-space: pre-line;
-  font-size: 1.25rem;
-  line-height: 1.7;
-  margin-bottom: 30px;
+/* Image gallery */
+.gallery {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 30px;
+  flex-wrap: wrap;
 }
 
+.gallery img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 14px;
+  opacity: 0.9;
+}
+
+/* Song link */
+.song {
+  display: inline-block;
+  margin-top: 25px;
+  text-decoration: none;
+  color: #f2c6d0;
+  font-size: 1.1rem;
+}
+
+/* Mobile tuning */
+@media (max-width: 768px) {
+  #typedText {
+    font-size: 1.15rem;
+    line-height: 1.7;
+  }
+
+  .gallery img {
+    width: 140px;
+    height: 140px;
+  }
 }
