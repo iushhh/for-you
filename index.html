@@ -1,25 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>For You</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
+<!-- Container ONLY for small screens -->
 <div id="container">
 
   <!-- Screen 1 -->
   <section class="screen active">
-    <p class="soft">Hi motle.</p>
+    <p class="soft">Hi love.</p>
     <p class="soft">Please open this when you feel ready.</p>
     <button onclick="nextScreen()">I’m ready</button>
   </section>
 
   <!-- Screen 2 -->
   <section class="screen">
-    <p class="line">I’ve been thinking a lot.</p>
+    <p class="line hidden">I’ve been thinking a lot.</p>
     <p class="line hidden">About us.</p>
     <p class="line hidden">About how my words hurt you.</p>
     <p class="line hidden">And how sorry I am.</p>
@@ -37,21 +28,27 @@
     </div>
   </section>
 
-  <!-- Screen 4 -->
-  <section class="screen">
-    <div id="typedText"></div>
-    <button id="finishBtn" class="hidden" onclick="nextScreen()">Continue</button>
-  </section>
-
-  <!-- Screen 5 -->
-  <section class="screen">
-    <p class="soft">You don’t have to reply right now.</p>
-    <p class="soft">Just know I’m here.</p>
-    <p class="soft">Always.</p>
-  </section>
-
 </div>
 
-<script src="script.js"></script>
-</body>
-</html>
+<!-- FULL SCREEN LETTER (OUTSIDE container) -->
+<section class="screen full" id="letterScreen">
+  <div class="message-wrapper">
+
+    <div id="typedText"></div>
+
+    <div id="hurtExtras" class="hidden">
+      <div class="gallery">
+        <img src="images/us1.jpg">
+        <img src="images/us2.jpg">
+        <img src="images/us3.jpg">
+      </div>
+
+      <a id="songLink" class="song" target="_blank">
+        🎧 Play the song that reminds me of you
+      </a>
+    </div>
+
+    <button id="finishBtn" class="hidden" onclick="nextScreen()">Continue</button>
+
+  </div>
+</section>
