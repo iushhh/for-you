@@ -1,13 +1,15 @@
 let currentScreen = 0;
 let lineIndex = 0;
-let mood = 'hurt';
+let mood = '';
 
 const screens = document.querySelectorAll('.screen');
 
 function nextScreen() {
   screens[currentScreen].classList.remove('active');
   currentScreen++;
-  screens[currentScreen].classList.add('active');
+  if (screens[currentScreen]) {
+    screens[currentScreen].classList.add('active');
+  }
 }
 
 function revealLine() {
@@ -33,8 +35,7 @@ function showMessage() {
   const songLink = document.getElementById('songLink');
 
   const messages = {
-    hurt: `
-  I know I hurt you.
+    hurt: `I know I hurt you.
 And I won’t try to justify it.
 I just want you to know I see it now.
 And I’m truly sorry.
@@ -56,39 +57,15 @@ i feel it frustrates me as to how i am unable to calm you and end up saying hurt
 love you the way you love everyone cause i lacked. You are an amazing human being, you inspire me, i feel warm and safe around you(nosy beh gayi laptop mein thodi si). Meri daya, dhobi, nonsense, i hope the very best for you meri jaan. 
 I am always your one call away till death bed and i promise that. I will watch friends, i will watch every disney movie, i will never stop watching taarak mehta. You will always hold a special place in my heart motle. 
 
-Mera ghopluuuuu....... 
-
-    `,
-
-    confused: `
-I know things feel unclear right now.
-And that confusion didn’t come from nowhere.
-
-You deserved clarity.
-You deserved steadiness.
-And I’m sorry I didn’t give you that.
-
-[WRITE YOUR FULL MESSAGE HERE]
-    `,
-
-    here: `
-Thank you for still being here.
-I don’t take that lightly.
-
-I know trust isn’t kept by words alone,
-and I want to show you, patiently, that I can do better.
-
-[WRITE YOUR FULL MESSAGE HERE]
-    `
+Mera ghopluuuuu....... `,
+    here: `thank you for still being here. We will talk and sort it out. Main message is in hurt btw`
   };
 
-  // Show full message instantly
   textBox.innerText = messages[mood];
 
-  // Show extras only for "hurt"
   if (mood === 'hurt') {
     hurtExtras.classList.remove('hidden');
-    songLink.href = "https://open.spotify.com/track/YOUR_SONG_ID";
+    songLink.href = "https://youtu.be/kuniEyt3Qks?si=iE73C0YTEk7XA-DM";
   }
 
   finishBtn.classList.remove('hidden');
